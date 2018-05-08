@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">Homepage</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          {% set navigation_bar = [
+              ('/', 'home', 'Home'),
+              ('/about_me', 'about_me', 'About Me'),
+              ('/projects', 'projects', 'Projects'),
+              ('/blog', 'blog', 'Blog'),
+              ('/contact', 'contact', 'Contact'),
+          ] -%}
+          {% set active_page = active_page|default('home') -%}
+          {% for href, id, caption in navigation_bar %}
+            <li {% if id == active_page %} class="nav-item active"{% endif
+            %}><a class="nav-link" href="{{ href|e }}">{{ caption|e }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  {% block content %}
+  {% endblock %}
+
+    <footer class="static-bottom">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-md-4 about-us">
+            <h5>ABOUT ME</h5>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipi Suspendisse ultrices hendrerit nunc
+              vitae vel a sodales. Ac lectus vel risus suscipit venenatis. Morbi dignissim mi non dui ullamcorper.
+            </p>
+            <p>
+              <span><i class="fas fa-location-arrow"></i></span> <a href="#">12,Street, New York, NY</a> <br>
+              <span><i class="fas fa-phone"></i></span> <a href="tel: 061001001">061001001</a> <br>
+              <span><i class="far fa-envelope"></i></span> <a href="mailto: info@davor-graj.com">info@davor-graj.com</a>
+            </p>
+          </div>
+
+          <div class="col-md-4 subscribe">
+            <h5>SUBSCRIBE FOR NEWS</h5>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur Suspendisse ultrices
+              hendrerit nunc vitae scrip sodales. Ac lectus vel risus suscipit ultrices Morbi dignissim mi non.
+            </p>
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Enter your E-mail" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button">Subscribe</button>
+              </div>
+            </div>
+            <div class="social">
+              <a href=""><i class="fab fa-facebook-f"></i></a>
+              <a href=""><i class="fab fa-twitter"></i></a>
+              <a href=""><i class="fab fa-instagram"></i></a>
+            </div>
+          </div>
+
+          <div class="col-md-4 contact">
+            <h5>CONTACT</h5>
+            <hr>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur Suspendisse ultrices
+              hendrerit nunc vitae scrip sodales. Ac lectus vel risus suscipit ultrices Morbi dignissim mi non.
+            </p>
+            <div class="text-center">
+              <button type="button" class="btn btn-outline-secondary"><a href="/contact">Contact</a></button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script defer src="//use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>
